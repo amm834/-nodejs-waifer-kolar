@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="" />
+    <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/009_file_handling/dummy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/009_file_handling/sync.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="4482000" />
+      <workItem from="1642876381598" duration="5097000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -99,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642880799347</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="For each and for in and for of loop">
+      <created>1642881267792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642881267792</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,7 +123,8 @@
     <MESSAGE value="Multiple module export and imports" />
     <MESSAGE value="Event emitter" />
     <MESSAGE value="Event emitter with argument" />
-    <option name="LAST_COMMIT_MESSAGE" value="Event emitter with argument" />
+    <MESSAGE value="For each and for in and for of loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="For each and for in and for of loop" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
