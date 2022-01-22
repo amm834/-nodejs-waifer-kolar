@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/007_event_emitter_with_arguments.js" afterDir="false" />
-    </list>
+    <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +39,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="styled-components" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -57,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="4292000" />
+      <workItem from="1642876381598" duration="4482000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642880281786</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Event emitter with argument">
+      <created>1642880799347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642880799347</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +112,8 @@
     <MESSAGE value="Module Exports" />
     <MESSAGE value="Multiple module export and imports" />
     <MESSAGE value="Event emitter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Event emitter" />
+    <MESSAGE value="Event emitter with argument" />
+    <option name="LAST_COMMIT_MESSAGE" value="Event emitter with argument" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
