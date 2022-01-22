@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/006_event_emitter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/005_multiple_module_export_and_import/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/005_multiple_module_export_and_import/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/007_event_emitter_with_arguments.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="3615000" />
+      <workItem from="1642876381598" duration="4292000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -89,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642879311770</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Event emitter">
+      <created>1642880281786</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642880281786</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,7 +106,8 @@
     <MESSAGE value="Function expression and callback" />
     <MESSAGE value="Module Exports" />
     <MESSAGE value="Multiple module export and imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiple module export and imports" />
+    <MESSAGE value="Event emitter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Event emitter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
