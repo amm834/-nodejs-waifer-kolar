@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/002_browser_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/003_fuction_expression_and_callback.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +49,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="1927000" />
+      <workItem from="1642876381598" duration="2270000" />
     </task>
+    <task id="LOCAL-00001" summary="Browser Apis">
+      <created>1642878499713</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642878499713</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -59,6 +66,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Browser Apis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Browser Apis" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
