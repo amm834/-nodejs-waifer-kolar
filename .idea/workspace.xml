@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/003_fuction_expression_and_callback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/004_module_exports/greetings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/004_module_exports/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="2270000" />
+      <workItem from="1642876381598" duration="2468000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -58,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642878499713</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Function expression and callback">
+      <created>1642878771452</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642878771452</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -67,7 +75,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Browser Apis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Browser Apis" />
+    <MESSAGE value="Function expression and callback" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function expression and callback" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
