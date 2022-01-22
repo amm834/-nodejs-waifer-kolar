@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/009_file_handling/dummy.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/009_file_handling/sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/009_file_handling/async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/009_file_handling/dummy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/009_file_handling/dummy.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="5097000" />
+      <workItem from="1642876381598" duration="5824000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -109,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642881267792</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Synchronously file handling">
+      <created>1642881910782</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1642881910782</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +132,8 @@
     <MESSAGE value="Event emitter" />
     <MESSAGE value="Event emitter with argument" />
     <MESSAGE value="For each and for in and for of loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="For each and for in and for of loop" />
+    <MESSAGE value="Synchronously file handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Synchronously file handling" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

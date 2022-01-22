@@ -1,2 +1,1 @@
-This is write file sync
-Append data
+Writing data from write fileAppened data
