@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c137eae6-78c7-483d-a992-4b4c78361818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/010_streams/012_writeableStream.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/010_streams/013_piping.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/010_streams/newDummy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/010_streams/readableStream.js" beforeDir="false" afterPath="$PROJECT_DIR$/010_streams/011_readableStream.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/010_streams/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/010_streams/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642876375857</updated>
-      <workItem from="1642876381598" duration="9349000" />
+      <workItem from="1642876381598" duration="9826000" />
     </task>
     <task id="LOCAL-00001" summary="Browser Apis">
       <created>1642878499713</created>
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642885330646</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Writeable Stream">
+      <created>1642885961280</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1642885961280</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +178,8 @@
     <MESSAGE value="Asynchronously file handling" />
     <MESSAGE value="Synchronously file creating and removing" />
     <MESSAGE value="Readablestream" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readablestream" />
+    <MESSAGE value="Writeable Stream" />
+    <option name="LAST_COMMIT_MESSAGE" value="Writeable Stream" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
