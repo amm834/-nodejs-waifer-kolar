@@ -1,26 +1,46 @@
 import {createServer} from 'http'
 import 'dotenv/config'
 import * as url from "url";
+import queryString from 'query-string'
+import * as fs from "fs";
+
+
+const fileHandle = (filename) => {
+	const path = 'static/' + filename;
+	fs.access(path, fs.constants.F_OK, (err) => {
+		if (err) throw err;
+	})
+	return fs.readFileSync(path);
+}
 
 function response(req, res, filename, status = 200, headers = {'content-type': 'text/html'}) {
 	res.writeHead(status, headers)
-	res.end(filename)
+	const renderedFile = fileHandle(filename)
+	res.end(renderedFile)
 }
 
 const routes = {
 	"GET": {
 		'/': (req, res) => {
-			response(req, res, 'Home page')
+			response(req, res, 'index.html')
 		},
 		'/contact': (req, res) => {
 			response(req, res, 'Contact page')
 		},
 		'/login': (req, res) => {
-			response(req, res, 'Login Get page')
+			response(req, res, 'login.html')
 		}
 	},
 	"POST": {
 		'/login': (req, res) => {
+			let data;
+			req.on('data', (chunk) => {
+				data += chunk;
+			})
+
+			req.on('end', () => {
+				console.log(queryString.parse(data, true))
+			})
 			response(req, res, 'Login Post page')
 		}
 	},
