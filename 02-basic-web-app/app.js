@@ -3,19 +3,26 @@ import 'dotenv/config'
 import * as url from "url";
 import queryString from 'query-string'
 import * as fs from "fs";
+import * as path from "path";
 
-
-const fileHandle = (filename) => {
-	const path = 'static/' + filename;
-	fs.access(path, fs.constants.F_OK, (err) => {
-		if (err) throw err;
-	})
-	return fs.readFileSync(path);
+const contentTypes = {
+	'.html': 'text/html', '.jpg': 'image/jpg'
 }
 
-function response(req, res, filename, status = 200, headers = {'content-type': 'text/html'}) {
-	res.writeHead(status, headers)
-	const renderedFile = fileHandle(filename)
+const fileHandle = (filepath) => {
+	fs.access(filepath, fs.constants.F_OK, (err) => {
+		if (err) throw err;
+	})
+	return fs.readFileSync(filepath);
+}
+
+function response(req, res, filepath) {
+	filepath = 'static/' + filepath;
+	const fileExtension = path.extname(filepath)
+	res.writeHead(200, {
+		'content-type': contentTypes[fileExtension] ?? 'text/html'
+	})
+	const renderedFile = fileHandle(filepath)
 	res.end(renderedFile)
 }
 
@@ -23,28 +30,25 @@ const routes = {
 	"GET": {
 		'/': (req, res) => {
 			response(req, res, 'index.html')
-		},
-		'/contact': (req, res) => {
+		}, '/contact': (req, res) => {
 			response(req, res, 'Contact page')
-		},
-		'/login': (req, res) => {
+		}, '/login': (req, res) => {
 			response(req, res, 'login.html')
 		}
-	},
-	"POST": {
+	}, "POST": {
 		'/login': (req, res) => {
 			let data;
 			req.on('data', (chunk) => {
 				data += chunk;
 			})
 
-			req.on('end', () => {
+			req.on('end' +
+				'', () => {
 				console.log(queryString.parse(data, true))
 			})
 			response(req, res, 'Login Post page')
 		}
-	},
-	"NA": (req, res) => {
+	}, "NA": (req, res) => {
 		response(req, res, '404 | not found', 404)
 	}
 }
