@@ -33,18 +33,19 @@
             <div class="card-header bg-dark text-light copy">
                 Chat Room
             </div>
-            <div class="card-body" style="min-height:350px;" id="show-messages">
-                <!-- Show chat messages here -->
+            <div class="card-body" style="min-height:350px;">
+                <ul class="list-group" id="show-messages">
+                    <!-- Show chat messages here -->
+                </ul>
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="form-group col-md-3">
-                        <input type="text" class="form-control" placeholder="Username" id="chat-username"/>
-                    </div>
-                    <div class="input-group my-3">
-                        <input type="text" class="form-control" id="message">
-                        <button class="btn btn-outline-secondary" type="button" id="send">Send</button>
-                    </div>
+                    <form id="message-input-form">
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control" id="message-input">
+                            <button class="btn btn-outline-secondary" type="submit">Send</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -74,6 +75,9 @@
 	const username = document.getElementById('username')
 	const loginContainer = document.getElementById('login-container')
 	const chatRoomContainer = document.getElementById('chat-room-container')
+	const messageInputForm = document.getElementById('message-input-form')
+	const messageInput = document.getElementById('message-input')
+	const showMessage = document.getElementById('show-messages')
 
 	loginForm.addEventListener('submit', (e) => {
 		e.preventDefault()
@@ -84,10 +88,29 @@
 	})
 
 	socket.on('logged-in-success', data => {
-		if (data.status) {
-			loginContainer.classList.add('d-none')
-			chatRoomContainer.classList.remove('d-none')
+		if (!data.status) {
+			return;
 		}
+
+		// on login success
+		loginContainer.classList.add('d-none')
+		chatRoomContainer.classList.remove('d-none')
+		messageInputForm.addEventListener('submit', sendMessage)
+
+	})
+
+
+	function sendMessage(e) {
+		e.preventDefault()
+		const message = messageInput.value;
+		socket.emit('send-message', message)
+	}
+
+	// show chat message and append to the UI
+	socket.on('send-message', message => {
+		const template = document.createElement('template')
+		template.innerHTML = `<li class="list-group-item border-0">${message}</li>`
+		showMessage.append(template.content)
 	})
 
 

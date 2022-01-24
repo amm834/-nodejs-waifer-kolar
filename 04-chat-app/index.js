@@ -27,16 +27,22 @@ privateNamespace.on('connection', socket => {
 })
 
 
-app.get('/', (req, res) => {
-	res.sendFile('index.html')
-})
-
 io.on('connection', (socket) => {
 	socket.on('login', (username) => {
+		socket.username = username
 		socket.emit('logged-in-success', {
 			status: true
 		})
+
+		socket.on('send-message', message => {
+			socket.emit('send-message', username + ":" + message)
+		})
 	})
+})
+
+
+app.get('/', (req, res) => {
+	res.sendFile('index.html')
 })
 
 server.listen(process.env.PORT, () => {
