@@ -1,45 +1,64 @@
 import express from 'express'
 import * as http from "http";
 import 'dotenv/config'
-import {Server} from 'socket.io'
-import __dirname from './__dirname.cjs'
-import * as path from "path";
+import bodyParser from "body-parser";
+import jwt from 'jsonwebtoken'
+import {ExtractJwt, Strategy as JwtStrategy} from 'passport-jwt'
+import passport from "passport";
+
+const opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = process.env.SECRET_KEY;
+
+
+const jwtStrategy = new JwtStrategy(opts, function (payload, done) {
+	const validated = payload.email === 'hello@test.com'
+	if (validated) {
+		done(null, {data: true})
+	} else {
+		done('Unauntenicated')
+	}
+})
+passport.use(jwtStrategy)
+
+
+const token = jwt.sign({
+	email: 'hello@test.com',
+}, process.env.SECRET_KEY)
 
 const app = express()
-app.use(express.static(path.join(__dirname, 'views')))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 const server = http.createServer(app)
-const io = new Server(server)
 
-const rooms = {
-	PUBLIC: 'public',
-	PRIVATE: 'private'
-}
+const db = new Map()
 
-io.on('connection', (socket) => {
-	socket.on('login', (username) => {
-		socket.username = username
-		socket.emit('logged-in-success', {
-			status: true
-		})
-
-		if (username == 'x' || username == 'y') {
-			socket.room = rooms.PRIVATE
-			socket.join(rooms.PRIVATE)
-		} else {
-			socket.room = rooms.PUBLIC
-			socket.join(rooms.PUBLIC)
-		}
-
-		socket.on('send-message', message => {
-			io.in(socket.room).emit('send-message', username + ":" + message)
-			// socket.emit('send-message', username + ":" + message)
-		})
+app.get('/', (req, res) => {
+	res.json({
+		data: "Welcome to home page!"
 	})
 })
 
+app.get('/free', (req, res) => {
+	res.json({
+		data: "Free Route"
+	})
+})
 
-app.get('/', (req, res) => {
-	res.sendFile('index.html')
+app.get('/paid', passport.authenticate('jwt', {session: false}), (req, res) => {
+	res.json({
+		data: "Paid route avaliable only for premium user"
+	})
+})
+
+app.get('/login', (req, res) => {
+	const {email, password} = req.body;
+	if (email === 'hello@test.com' && password === '123') {
+		res.json({
+			token
+		})
+	}
+	res.send("Invalid Credentials")
 })
 
 server.listen(process.env.PORT, () => {
