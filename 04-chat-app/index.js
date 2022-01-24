@@ -21,6 +21,11 @@ app.get('/upload', upload.single('image'), (req, res) => {
 	console.log(req)
 })
 
+app.get('/multi-upload', upload.array('images', 12), (req, res) => {
+	req.files.forEach(file => {
+		console.log(file.filename)
+	})
+})
 server.listen(process.env.PORt, () => {
 	console.log('Server is running')
 })
