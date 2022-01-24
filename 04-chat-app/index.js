@@ -11,6 +11,22 @@ app.use(express.static(path.join(__dirname, 'views')))
 const server = http.createServer(app)
 const io = new Server(server)
 
+const publicNamespace = io.of('/public')
+const privateNamespace = io.of('/private')
+
+publicNamespace.on('connection', socket => {
+	socket.on('public-message', data => {
+		console.log('Public Message', data)
+	})
+})
+
+privateNamespace.on('connection', socket => {
+	socket.on('private-message', data => {
+		console.log('Private Message', data)
+	})
+})
+
+
 app.get('/', (req, res) => {
 	res.sendFile('index.html')
 })

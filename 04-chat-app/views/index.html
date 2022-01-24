@@ -53,14 +53,27 @@
 </div>
 </div>
 
+<button class="btn btn-primary" onclick="privateRoom()">Private</button>
+<button class="btn btn-primary" onclick="publicRoom()">Pubic</button>
+
 <script src="/socket.io/socket.io.js"></script>
 <script>
 	const socket = io()
+	const publicSocket = io('/public')
+	const privateSocket = io('/private')
+
+	function privateRoom() {
+		privateSocket.emit('private-message', 'Hello form private')
+	}
+
+	function publicRoom() {
+		publicSocket.emit('public-message', 'Hello form public')
+	}
 
 	const loginForm = document.getElementById('form')
 	const username = document.getElementById('username')
-    const loginContainer = document.getElementById('login-container')
-    const chatRoomContainer = document.getElementById('chat-room-container')
+	const loginContainer = document.getElementById('login-container')
+	const chatRoomContainer = document.getElementById('chat-room-container')
 
 	loginForm.addEventListener('submit', (e) => {
 		e.preventDefault()
@@ -71,10 +84,10 @@
 	})
 
 	socket.on('logged-in-success', data => {
-		if (data.status){
+		if (data.status) {
 			loginContainer.classList.add('d-none')
 			chatRoomContainer.classList.remove('d-none')
-        }
+		}
 	})
 
 
