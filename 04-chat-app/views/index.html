@@ -54,14 +54,10 @@
 </div>
 </div>
 
-<button class="btn btn-primary" onclick="privateRoom()">Private</button>
-<button class="btn btn-primary" onclick="publicRoom()">Pubic</button>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
 	const socket = io()
-	const publicSocket = io('/public')
-	const privateSocket = io('/private')
 
 	function privateRoom() {
 		privateSocket.emit('private-message', 'Hello form private')

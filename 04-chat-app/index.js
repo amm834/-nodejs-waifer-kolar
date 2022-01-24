@@ -5,27 +5,15 @@ import {Server} from 'socket.io'
 import __dirname from './__dirname.cjs'
 import * as path from "path";
 
-
 const app = express()
 app.use(express.static(path.join(__dirname, 'views')))
 const server = http.createServer(app)
 const io = new Server(server)
 
-const publicNamespace = io.of('/public')
-const privateNamespace = io.of('/private')
-
-publicNamespace.on('connection', socket => {
-	socket.on('public-message', data => {
-		console.log('Public Message', data)
-	})
-})
-
-privateNamespace.on('connection', socket => {
-	socket.on('private-message', data => {
-		console.log('Private Message', data)
-	})
-})
-
+const rooms = {
+	PUBLIC: 'public',
+	PRIVATE: 'private'
+}
 
 io.on('connection', (socket) => {
 	socket.on('login', (username) => {
@@ -34,8 +22,17 @@ io.on('connection', (socket) => {
 			status: true
 		})
 
+		if (username == 'x' || username == 'y') {
+			socket.room = rooms.PRIVATE
+			socket.join(rooms.PRIVATE)
+		} else {
+			socket.room = rooms.PUBLIC
+			socket.join(rooms.PUBLIC)
+		}
+
 		socket.on('send-message', message => {
-			socket.emit('send-message', username + ":" + message)
+			io.in(socket.room).emit('send-message', username + ":" + message)
+			// socket.emit('send-message', username + ":" + message)
 		})
 	})
 })
