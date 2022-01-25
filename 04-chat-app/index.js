@@ -1,13 +1,10 @@
-import express from "express";
-import * as http from "http";
-import 'dotenv/config'
-import {router} from "./router.js";
+const client = require("mongodb").MongoClient
+const url = 'mongodb://localhost:27017/first'
 
+const connector = (err, instance) => {
+	if (err) throw err
+	console.log(instance)
+}
 
-const app = express()
-const server = http.createServer(app);
-app.use(router)
+client.connect(url, connector)
 
-server.listen(process.env.PORt, () => {
-	console.log('Server is running')
-})
