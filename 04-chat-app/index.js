@@ -36,9 +36,9 @@ const insert = (obj) => {
 
 // insert([
 // 	{name: "Mg MG", email: "mgmg@gmail.com", age: 123},
-// 	{name: "Mg MG", email: "mgmg@gmail.com", age: 123, adresss: "Letpadan"},
-// 	{name: "Mg MG", email: "mgmg@gmail.com", age: 123},
-// 	{name: "Mg MG", email: "mgmg@gmail.com", age: 123},
+// 	{name: "Aung Aung", email: "mgmg@gmail.com", age: 123, adresss: "Letpadan"},
+// 	{name: "Hla Hla", email: "mgmg@gmail.com", age: 123},
+// 	{name: "Mya Mya", email: "mgmg@gmail.com", age: 123},
 // ])
 
 const findUser = () => {
@@ -96,5 +96,29 @@ const deleteUser = () => {
 	})
 }
 
-deleteUser()
+
+const updateUser = () => {
+	client.connect(url, (err, instance) => {
+		const db = instance.db('first')
+		// Update one
+		// const filter = {
+		// 	name: "Mg MG"
+		// }
+		// db.collection('users').updateOne(filter, {
+		// 	$set: {
+		// 		name: "Mg Mg"
+		// 	}
+		// }, errorChecker)
+
+		const filter = {
+			age: 123
+		}
+		db.collection('users').updateMany(filter, {
+			$set: {
+				age: 456
+			}
+		}, errorChecker)
+	})
+}
+updateUser()
 
