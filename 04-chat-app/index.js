@@ -78,4 +78,23 @@ const sortUser = () => {
 	})
 }
 
-sortUser()
+const deleteUser = () => {
+	client.connect(url, (err, instance) => {
+		const db = instance.db('first')
+		// delete one
+		// db.collection('users').deleteOne({
+		// 	name: "Aung Aung"
+		// }, errorChecker)
+
+		// delete many
+		// db.collection('users').deleteMany({
+		// 	name: /[\s]/
+		// }, errorChecker)
+
+		// drop collection
+		db.dropCollection('users')
+	})
+}
+
+deleteUser()
+
