@@ -25,5 +25,23 @@ const destory = (_id) => {
 	return Category.findOneAndDelete({_id})
 }
 
+const getProducts = (from, localId, foreignId) => {
+	return new Promise((resolve, reject) => {
+		Category.aggregate([
+			{
+				$lookup: {
+					from,
+					localField: localId,
+					foreignField: foreignId,
+					as: 'cat_products'
+				}
+			}
+		]).exec((error, result) => {
+			if (error) reject(error)
+			resolve(result)
+		})
+	})
+}
 
-export {all, save, update, destory}
+
+export {all, save, update, destory, getProducts}
