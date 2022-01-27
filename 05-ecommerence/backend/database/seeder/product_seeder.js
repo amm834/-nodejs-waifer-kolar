@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
-import {save} from "../../controllers/ProductController.js";
 import __dirname from './__dirname.cjs'
+import {save} from "../../models/Product.js"
 
 const filepath = path.join(__dirname, 'data/products.json')
 

@@ -9,7 +9,7 @@ const CategorySchema = new Schema({
 	since: {type: Date, required: true}
 })
 
-const Category = mongoose.mongo('Category', CategorySchema)
+const Category = mongoose.model('Category', CategorySchema)
 
 const all = () => {
 	return Category.find({});

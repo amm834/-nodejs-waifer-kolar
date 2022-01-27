@@ -1,5 +1,5 @@
 import passport from "passport";
-import {getPaginatedProducts, uploadImage} from "../controllers/AdminController.js";
+import {getAllCats, getAllGalleries, getPaginatedProducts, uploadImage} from "../controllers/AdminController.js";
 import Router from "../router.js";
 import upload from "../utils/upload.js";
 
@@ -13,5 +13,7 @@ const middlewares = [
 router.post('/image/upload', ...middlewares,
 	uploadImage)
 	.get('/products/paginate/:start/:count', middlewares[0], getPaginatedProducts)
+	.get('/categories/all', middlewares[0], getAllCats)
+	.get('/galleries/all', middlewares[0], getAllGalleries)
 
 export default router;
