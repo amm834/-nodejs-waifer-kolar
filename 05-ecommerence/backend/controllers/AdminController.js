@@ -1,6 +1,6 @@
 import {all} from "../models/Category.js";
-import {all as galleriesAll, save} from '../models/Gallery.js'
-import {paginate} from "../models/Product.js";
+import {all as galleriesAll} from '../models/Gallery.js'
+import {paginate, save} from "../models/Product.js";
 
 
 const uploadImage = async (req, res) => {
@@ -78,4 +78,53 @@ const getAllGalleries = async (req, res) => {
 	}
 }
 
-export {uploadImage, getPaginatedProducts, getAllCats, getAllGalleries}
+const createProduct = async (req, res) => {
+	const {cat_id, name, price, description} = req.body;
+	const errors = []
+	if (!cat_id) {
+		errors.push("Cat id field is required")
+	}
+	if (!name) {
+		errors.push("Name field is required")
+	}
+	if (!price) {
+		errors.push("Price field is required")
+	}
+	if (!description) {
+		errors.push("Description field is required")
+	}
+	if (!cat_id || !name || !price || !description) {
+		res.status(422).json({
+			condition: false,
+			message: "Validation error",
+			errors
+		})
+	}
+
+	// section onProuctValidationPassed
+	/*
+	*               ____                       _ __     __    _ _     _       _   _             ____                        _
+	*    ___  _ __ |  _ \ _ __ ___  _   _  ___| |\ \   / /_ _| (_) __| | __ _| |_(_) ___  _ __ |  _ \ __ _ ___ ___  ___  __| |
+	*   / _ \| '_ \| |_) | '__/ _ \| | | |/ __| __\ \ / / _` | | |/ _` |/ _` | __| |/ _ \| '_ \| |_) / _` / __/ __|/ _ \/ _` |
+	*  | (_) | | | |  __/| | | (_) | |_| | (__| |_ \ V / (_| | | | (_| | (_| | |_| | (_) | | | |  __/ (_| \__ \__ \  __/ (_| |
+	*   \___/|_| |_|_|   |_|  \___/ \__,_|\___|\__| \_/ \__,_|_|_|\__,_|\__,_|\__|_|\___/|_| |_|_|   \__,_|___/___/\___|\__,_|
+	*
+	*/
+
+	try {
+		const product = await save({cat_id, name, price, description})
+		res.status(422).json({
+			condition: true,
+			data: product
+		})
+	} catch (error) {
+		res.status(422).json({
+			condition: false,
+			message: "Failed to create new product",
+			error
+		})
+	}
+}
+
+
+export {uploadImage, getPaginatedProducts, getAllCats, getAllGalleries, createProduct}

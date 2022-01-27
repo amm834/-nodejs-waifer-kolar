@@ -17,6 +17,7 @@ const Product = mongoose.model('Product', ProductSchema)
 
 
 const save = (product) => {
+	product['since'] = Date.now()
 	return Product.create(product)
 }
 
