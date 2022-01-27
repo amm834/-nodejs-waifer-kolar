@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Computer",
+    "image": "computer.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Phone",
+    "image": "phone.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Fan",
+    "image": "fan.jpg"
+  }
+]
