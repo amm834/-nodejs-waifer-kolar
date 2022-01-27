@@ -16,6 +16,7 @@ const all = () => {
 }
 
 const save = (user) => {
+	user['since'] = Date.now()
 	return User.create(user)
 }
 
