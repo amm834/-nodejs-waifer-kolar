@@ -10,6 +10,7 @@ specifiers:
   express: ^4.17.2
   jsonwebtoken: ^8.5.1
   mongoose: ^6.1.8
+  mongoose-paginate-v2: ^1.5.0
   passport: ^0.5.2
   passport-jwt: ^4.0.0
 
@@ -19,6 +20,7 @@ dependencies:
   express: 4.17.2
   jsonwebtoken: 8.5.1
   mongoose: 6.1.8
+  mongoose-paginate-v2: 1.5.0
   passport: 0.5.2
   passport-jwt: 4.0.0
 
@@ -828,6 +830,11 @@ packages:
       mongodb-connection-string-url: 2.4.1
     optionalDependencies:
       saslprep: 1.0.3
+    dev: false
+
+  /mongoose-paginate-v2/1.5.0:
+    resolution: {integrity: sha512-+r/M/gYfR98s1ooXoSH3aD3bMopjXKR6UpzQZSDWI22uNtoIpxia4/b80X99ho3g8AMzl0uLuQFuPL06mXHyyg==}
+    engines: {node: '>=4.0.0'}
     dev: false
 
   /mongoose/6.1.8:
