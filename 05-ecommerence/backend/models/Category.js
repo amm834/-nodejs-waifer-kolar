@@ -9,5 +9,4 @@ const CategorySchema = new Schema({
 	since: {type: Date, required: true}
 })
 
-const Category = mongoose.model('Category', CategorySchema)
-export default Category;
+export default mongoose.model('Category', CategorySchema)
