@@ -10,17 +10,20 @@ const save = (category) => {
 }
 
 const update = (category) => {
-	return new Promise((resolve, reject) => {
-		Category.findById(category.id, (error, doc) => {
-			if (error) reject(error)
-			doc.name = category.name
-			doc.save((error, doc) => {
-				if (error) reject(error)
-				resolve(doc)
-			})
+	Category.findById(category.id, (error, doc) => {
+		if (error) return Promise.reject(error)
+
+		doc.name = category.name
+		doc.save((error, doc) => {
+			if (error) return Promise.reject(error)
+			return Promise.resolve(doc)
 		})
 	})
 }
 
+const destory = (_id) => {
+	return Category.findOneAndDelete({_id})
+}
 
-export {all, save, update}
+
+export {all, save, update, destory}
