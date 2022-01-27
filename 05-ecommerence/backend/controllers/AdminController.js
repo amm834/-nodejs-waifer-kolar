@@ -79,7 +79,7 @@ const getAllGalleries = async (req, res) => {
 }
 
 const createProduct = async (req, res) => {
-	const {cat_id, name, price, description} = req.body;
+	const {cat_id, name, price, image, description} = req.body;
 	const errors = []
 	if (!cat_id) {
 		errors.push("Cat id field is required")
@@ -93,7 +93,10 @@ const createProduct = async (req, res) => {
 	if (!description) {
 		errors.push("Description field is required")
 	}
-	if (!cat_id || !name || !price || !description) {
+	if (!image) {
+		errors.push("Image field is required")
+	}
+	if (!cat_id || !name || !price || !description || !image) {
 		res.status(422).json({
 			condition: false,
 			message: "Validation error",
@@ -112,7 +115,7 @@ const createProduct = async (req, res) => {
 	*/
 
 	try {
-		const product = await save({cat_id, name, price, description})
+		const product = await save({cat_id, name, price, image, description})
 		res.status(422).json({
 			condition: true,
 			data: product
