@@ -24,10 +24,10 @@ const destory = (_id) => {
 	return Product.findOneAndDelete({_id})
 }
 
-const paginate = (page, limit) => {
+const paginate = (start, count) => {
 	const options = {
-		page,
-		limit,
+		page: start,
+		limit: count,
 		sort: {_id: -1},
 		lean: true
 	};
