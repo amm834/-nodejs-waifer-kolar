@@ -9,4 +9,22 @@ const UserSchema = new Schema({
 	since: {type: Date, required: true}
 });
 
-export default mongoose.model('User', UserSchema)
+const User = mongoose.model('User', UserSchema)
+
+const all = () => {
+	return User.find({});
+}
+
+const save = (user) => {
+	return User.create(user)
+}
+
+const findById = (_id) => {
+	return User.findById(_id)
+}
+
+const findByEmail = (email) => {
+	return User.findOne({email})
+}
+
+export {all, save, findById, findByEmail}
