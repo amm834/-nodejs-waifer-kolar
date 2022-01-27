@@ -63,6 +63,7 @@ const getAllCats = async (req, res) => {
 		})
 	}
 }
+
 const getAllGalleries = async (req, res) => {
 	try {
 		const galleries = await galleriesAll();

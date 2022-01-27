@@ -8,6 +8,7 @@ import {ExtractJwt, Strategy} from 'passport-jwt'
 import {findByEmail} from './models/User.js'
 import Router from "./router.js";
 import AdminRouter from "./routes/admin.js";
+import GuestRouer from "./routes/guest.js";
 import UserRouter from './routes/user.js'
 
 // section Monogo ORM
@@ -76,6 +77,7 @@ app.use(router)
 *                   |_|
 */
 
+app.use('/', GuestRouer)
 app.use('/api/user', UserRouter)
 app.use('/api/admin', AdminRouter)
 
