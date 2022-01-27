@@ -1,12 +1,11 @@
 import 'dotenv/config'
 import mongoose from "mongoose";
-import * as gallery from "./controllers/GalleryController.js"
+import * as hasher from './utils/hasher.js'
 
 await mongoose.connect(process.env.MONGO_URI)
 
-gallery.save({
-	name: "some.jpg"
-})
+const some = 'password'
+hasher.hash(some)
 	.then(res => {
 		console.log(res)
 	})
@@ -14,4 +13,11 @@ gallery.save({
 		console.log(err)
 	})
 
-gallery.all().then(res => console.log(res))
+const hash = '$2b$10$kIj5FQKwMHPWChpIHSE5IOuO.PNP38pnPE9VIaJK5vu8th.D/TgSK'
+hasher.compare(some, hash)
+	.then(res => {
+		console.log(res)
+	})
+	.catch(err => {
+		console.log(err)
+	})
