@@ -3,6 +3,9 @@ import * as http from "http";
 import 'dotenv/config'
 import bodyParser from "body-parser";
 import Router from './routes/todo.js'
+import * as mongoose from "mongoose";
+
+await mongoose.connect('mongodb://localhost/todo_list');
 
 const app = express();
 
