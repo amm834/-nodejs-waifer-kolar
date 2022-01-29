@@ -1,3 +1,7 @@
+import List from "../models/Todo.js";
+import Todo from "../models/Todo.js";
+import {validationResult} from "express-validator";
+
 // section Get All Data
 /*
 *    ____      _         _    _ _    ____        _
@@ -8,19 +12,15 @@
 *
 */
 
-import List from "../models/List.js";
-
 export const index = async (req, res) => {
 	try {
 		const lists = await List.find({})
 		res.json({
-			message: "List fetched successfully",
 			data: lists
 		})
 	} catch (error) {
 		res.status(422).json({
-			message: "Cannot get list for this time",
-			error: error
+			message: "Cannot get list for this time", error: error
 		})
 	}
 }
@@ -35,21 +35,24 @@ export const index = async (req, res) => {
 *
 */
 
-export const create = async (req, res) => {
-	let {task} = req.body;
-	console.log(req.body)
-	const taskObj = {task, since: Date.now()}
+export const create = async (req, res, next) => {
 	try {
-		const result = await List.create(taskObj)
+		const errors = validationResult(req)
+		if (!errors.isEmpty()) {
+			res.status(422).json({
+				errors: errors.array()
+			})
+			return;
+		}
+		const data = await Todo.create({
+			task: req.body.task,
+			since: Date.now()
+		})
 		res.json({
-			message: "Task crating successfully",
-			data: result
+			data
 		})
 	} catch (error) {
-		res.status(422).json({
-			message: "Task creating failed",
-			error
-		})
+		next(error)
 	}
 }
 
