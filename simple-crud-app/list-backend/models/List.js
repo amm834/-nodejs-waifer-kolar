@@ -1,8 +1,8 @@
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 
 const {Schema} = mongoose;
 const ListSchema = new Schema({
-	task: {type: string, required: true},
+	task: {type: String, required: true},
 	since: {type: Date, required: true}
 })
 

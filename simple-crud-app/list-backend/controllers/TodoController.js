@@ -8,10 +8,21 @@
 *
 */
 
-export const index = (req, res) => {
-	res.json({
-		name: "Aung Myat Moe"
-	})
+import List from "../models/List.js";
+
+export const index = async (req, res) => {
+	try {
+		const lists = await List.find({})
+		res.json({
+			message: "List fetched successfully",
+			data: lists
+		})
+	} catch (error) {
+		res.status(422).json({
+			message: "Cannot get list for this time",
+			error: error
+		})
+	}
 }
 
 // section Create
@@ -24,8 +35,22 @@ export const index = (req, res) => {
 *
 */
 
-export const create = (req, res) => {
-	res.send("create route")
+export const create = async (req, res) => {
+	let {task} = req.body;
+	console.log(req.body)
+	const taskObj = {task, since: Date.now()}
+	try {
+		const result = await List.create(taskObj)
+		res.json({
+			message: "Task crating successfully",
+			data: result
+		})
+	} catch (error) {
+		res.status(422).json({
+			message: "Task creating failed",
+			error
+		})
+	}
 }
 
 // section Get Single Data
