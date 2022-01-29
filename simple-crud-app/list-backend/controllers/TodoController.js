@@ -1,6 +1,7 @@
 import List from "../models/Todo.js";
 import Todo from "../models/Todo.js";
 import {validationResult} from "express-validator";
+import mongoose from "mongoose";
 
 // section Get All Data
 /*
@@ -35,7 +36,7 @@ export const index = async (req, res) => {
 *
 */
 
-export const create = async (req, res, next) => {
+export const create = async (req, res) => {
 	try {
 		const errors = validationResult(req)
 		if (!errors.isEmpty()) {
@@ -52,7 +53,7 @@ export const create = async (req, res, next) => {
 			data
 		})
 	} catch (error) {
-		next(error)
+		res.status(422).json(error)
 	}
 }
 
@@ -66,23 +67,22 @@ export const create = async (req, res, next) => {
 *                                   |___/
 */
 
-export const show = (req, res) => {
-	res.send('showing single data')
+export const show = async (req, res) => {
+	try {
+		const errors = validationResult(req.params)
+		if (!errors.isEmpty()) {
+			res.json({errors: errors.array()})
+			return;
+		}
+
+		const data = await Todo.findById({_id: req.params.id});
+		res.json({data: data})
+
+	} catch (error) {
+		res.status(422).json(error)
+	}
 }
 
-// section show single data to edit
-/*
-*       _                          _             _             _       _           _                    _ _ _
-*   ___| |__   _____      __   ___(_)_ __   __ _| | ___     __| | __ _| |_ __ _   | |_ ___      ___  __| (_) |_
-*  / __| '_ \ / _ \ \ /\ / /  / __| | '_ \ / _` | |/ _ \   / _` |/ _` | __/ _` |  | __/ _ \    / _ \/ _` | | __|
-*  \__ \ | | | (_) \ V  V /   \__ \ | | | | (_| | |  __/  | (_| | (_| | || (_| |  | || (_) |  |  __/ (_| | | |_
-*  |___/_| |_|\___/ \_/\_/    |___/_|_| |_|\__, |_|\___|   \__,_|\__,_|\__\__,_|   \__\___/    \___|\__,_|_|\__|
-*                                          |___/
-*/
-
-export const edit = (req, res) => {
-	res.send('to edit some data')
-}
 
 // section update single data
 /*
@@ -94,10 +94,24 @@ export const edit = (req, res) => {
 *        |_|                                       |___/
 */
 
-export const update = (req, res) => {
-	res.send("update data to the db")
-}
+export const update = async (req, res) => {
+	try {
+		const errors = validationResult(req.body)
+		if (!errors.isEmpty()) {
+			res.json({errors: errors.array()})
+			return;
+		}
 
+		const data = await Todo.findByIdAndUpdate({_id: mongoose.Types.ObjectId(req.params.id)}, {
+			task: req.body.task,
+			since: Date.now()
+		})
+		res.json({data})
+
+	} catch (error) {
+		res.status(422).json(error)
+	}
+}
 // section delete
 /*
 *       _      _      _

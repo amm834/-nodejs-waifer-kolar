@@ -1,6 +1,10 @@
-import {check} from "express-validator";
+import {check, query} from "express-validator";
 
-const TodoValidation = [
+export const CreateValidation = [
 	check('name', 'Task must not be empty').not().isEmpty()
 ];
-export default TodoValidation;
+
+export const GetTodoParamValidation = [
+	query('id').not().isEmpty().isNumeric()
+]
+
