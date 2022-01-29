@@ -96,7 +96,7 @@ export const show = async (req, res) => {
 
 export const update = async (req, res) => {
 	try {
-		const errors = validationResult(req.body)
+		const errors = validationResult(req)
 		if (!errors.isEmpty()) {
 			res.json({errors: errors.array()})
 			return;
@@ -122,6 +122,18 @@ export const update = async (req, res) => {
 *
 */
 
-export const destory = (req, res) => {
-	res.send('delete data')
+export const destory = async (req, res) => {
+	try {
+		const errors = validationResult(req.params)
+		if (!errors.isEmpty()) {
+			res.json({errors: errors.array()})
+			return;
+		}
+		const result = await Todo.findOneAndDelete({_id: mongoose.Types.ObjectId(req.params.id)})
+		res.status(422).json({
+			errors: errors.array()
+		})
+	} catch (error) {
+		res.json(error)
+	}
 }

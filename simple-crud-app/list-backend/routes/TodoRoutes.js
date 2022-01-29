@@ -7,7 +7,8 @@ const router = Router.getInstance();
 router.get('/', TodoController.index)
 	.post('/create', TodoValidation.CreateValidation, TodoController.create)
 	.get('/show/:id', TodoValidation.GetTodoParamValidation, TodoController.show)
-	.put('/update/:id', TodoValidation.GetTodoParamValidation, TodoController.update)
-	.delete('/delete/:id', TodoController.destory)
+	.put('/update/:id', TodoValidation.CreateValidation, TodoController.update)
+	.delete('/delete/:id', TodoValidation.GetTodoParamValidation, TodoController.destory
+	)
 
 export default router;
