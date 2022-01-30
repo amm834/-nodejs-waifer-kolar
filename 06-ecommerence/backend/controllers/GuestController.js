@@ -6,7 +6,7 @@ const getAllCats = async (req, res) => {
 	try {
 		const cats = await all();
 		res.json({
-			conditon: true,
+			condition: true,
 			data: cats
 		})
 	} catch (error) {
@@ -51,4 +51,4 @@ const getPaginatedProducts = async (req, res) => {
 	}
 }
 
-export {getAllCats,getAllGalleries,getPaginatedProducts}
+export {getAllCats, getAllGalleries, getPaginatedProducts}
