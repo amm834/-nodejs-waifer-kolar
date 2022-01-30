@@ -64,6 +64,7 @@ const router = Router.getInstance()
 const server = http.createServer(app)
 
 app.use(cors())
+app.use(express.static('storage/images'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 passport.use(JwtStrategy)
