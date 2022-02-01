@@ -36,5 +36,8 @@ const paginate = (start, count) => {
 	return Product.paginate({}, options)
 }
 
+const findProductByCatId = (cat_id) => {
+	return Product.find({cat_id})
+}
 
-export {save, destory, paginate}
+export {save, destory, paginate, findProductByCatId}

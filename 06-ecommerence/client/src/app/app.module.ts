@@ -7,12 +7,14 @@ import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
 import {LocalService} from "../services/local.service";
 import {HttpClientModule} from "@angular/common/http";
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

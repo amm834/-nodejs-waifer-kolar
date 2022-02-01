@@ -3,6 +3,7 @@ import {LocalService} from "../../services/local.service";
 
 interface Category {
   _id: string,
+  id: string,
   name: string,
   image: string,
   since: string
