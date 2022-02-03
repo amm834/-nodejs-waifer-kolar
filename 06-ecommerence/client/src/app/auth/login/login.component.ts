@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {LocalService} from "../../../services/local.service";
+import {Storage} from "../../helper/Storage";
+import {Auth} from "../../helper/Auth";
 
 @Component({
   selector: 'app-login',
@@ -18,11 +21,11 @@ export class LoginComponent implements OnInit {
     ]))
   })
 
-  constructor() {
+  constructor(private localService: LocalService) {
   }
 
   ngOnInit(): void {
-
+    console.log(Auth.check())
   }
 
   get email() {
@@ -34,6 +37,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(data: FormData) {
-    console.log(data)
+    this.localService.loginNow(data).subscribe(
+      response => {
+        if (response.condition) {
+          Storage.token = response.token;
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 }
