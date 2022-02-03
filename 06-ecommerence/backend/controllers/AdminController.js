@@ -68,7 +68,7 @@ const getAllGalleries = async (req, res) => {
 	try {
 		const galleries = await galleriesAll();
 		res.json({
-			conditon: true,
+			condition: true,
 			data: galleries
 		})
 	} catch (error) {

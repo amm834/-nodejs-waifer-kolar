@@ -10,6 +10,8 @@ export class LocalService {
   private CATEGORIES_URL = this.BASE_URL + '/categories'
   private LOGIN_URL = this.BASE_URL + '/login'
   private ADMIN_CATS = this.BASE_URL + '/api/admin/categories/all'
+  private ADMIN_GALLERY = this.BASE_URL + '/api/admin/galleries/all'
+
 
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
@@ -48,6 +50,14 @@ export class LocalService {
 
   getAllAdminCats() {
     return this.http.get(this.ADMIN_CATS).pipe(
+      map(
+        (response: any) => response
+      )
+    )
+  }
+
+  getAdminGalleries() {
+    return this.http.get(this.ADMIN_GALLERY).pipe(
       map(
         (response: any) => response
       )
