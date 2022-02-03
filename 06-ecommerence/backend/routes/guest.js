@@ -6,5 +6,5 @@ const router = Router.getInstance()
 router.get('/categories', getAllCats)
 	.get('/galleries', getAllGalleries)
 	.get('/products/:start/:count', getPaginatedProducts)
-	.get('/products/:id', getProductById)
+	.get('/categories/:id', getProductById)
 export default router;
