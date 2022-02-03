@@ -7,14 +7,20 @@ import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
 import {LocalService} from "../services/local.service";
 import {HttpClientModule} from "@angular/common/http";
-import { DetailComponent } from './detail/detail.component';
+import {DetailComponent} from './detail/detail.component';
+import {AuthComponent} from './auth/auth.component';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    DetailComponent
+    DetailComponent,
+    AuthComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
