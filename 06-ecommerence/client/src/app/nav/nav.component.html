@@ -16,7 +16,7 @@
             Member
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" *ngIf="isLoggedIn">Logout</a></li>
+            <li><a class="dropdown-item" *ngIf="isLoggedIn" (click)="logout()">Logout</a></li>
             <li><a class="dropdown-item" routerLink="/auth" *ngIf="!isLoggedIn">Login</a></li>
             <li><a class="dropdown-item" routerLink="/auth/register" *ngIf="!isLoggedIn">Register</a></li>
           </ul>

@@ -12,6 +12,11 @@ import {AuthComponent} from './auth/auth.component';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AdminPanelComponent} from './admin-panel/admin-panel.component';
+import {GalleryCreateComponent} from './admin-panel/gallery-create/gallery-create.component';
+import {AdminGalleryComponent} from './admin-panel/admin-gallery/admin-gallery.component';
+import {AdminHomeComponent} from './admin-panel/admin-home/admin-home.component';
+import {PostCreateComponent} from './admin-panel/post-create/post-create.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     DetailComponent,
     AuthComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminPanelComponent,
+    GalleryCreateComponent,
+    AdminGalleryComponent,
+    AdminHomeComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,

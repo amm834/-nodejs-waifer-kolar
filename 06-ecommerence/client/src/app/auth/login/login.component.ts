@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LocalService} from "../../../services/local.service";
 import {Storage} from "../../helper/Storage";
 import {Auth} from "../../helper/Auth";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     ]))
   })
 
-  constructor(private localService: LocalService) {
+  constructor(private localService: LocalService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
         if (response.condition) {
           Storage.token = response.token;
           this.localService.changeAuthState(true)
+          this.router.navigate(['/admin'])
         }
       },
       error => {

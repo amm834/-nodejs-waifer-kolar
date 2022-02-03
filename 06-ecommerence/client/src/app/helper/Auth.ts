@@ -9,4 +9,8 @@ export class Auth {
     return false;
   }
 
+  static logout() {
+    Storage.removeToken('token')
+  }
+
 }

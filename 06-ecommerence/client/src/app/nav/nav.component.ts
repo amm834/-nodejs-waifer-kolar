@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LocalService} from "../../services/local.service";
+import {Auth} from "../helper/Auth";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +11,7 @@ import {LocalService} from "../../services/local.service";
 export class NavComponent implements OnInit {
   isLoggedIn: boolean | undefined;
 
-  constructor(private localService: LocalService) {
+  constructor(private localService: LocalService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -18,6 +20,12 @@ export class NavComponent implements OnInit {
         this.isLoggedIn = state;
       }
     )
+  }
+
+  logout() {
+    Auth.logout()
+    this.localService.changeAuthState(false)
+    this.router.navigate(['/'])
   }
 
 }
