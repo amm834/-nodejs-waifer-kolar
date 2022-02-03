@@ -8,14 +8,25 @@
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
              formControlName="email"
+             required
       >
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div *ngIf="email?.invalid">
+        <div class="form-text text-danger"
+             *ngIf="email?.errors?.['required']">Eamil is required</div>
+
+        <div class="form-text text-danger" *ngIf="email?.errors?.['email']">Email is not valide</div>
+      </div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label"
-
       >Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      <div *ngIf="password?.invalid">
+        <div class="text-danger" *ngIf="password?.errors?.['required']">Password is required</div>
+
+        <div class="text-danger"
+             *ngIf="password?.errors?.['minlength']">Password should have at least 6 characters.</div>
+      </div>
     </div>
     <div class="d-flex justify-content-between">
       <a routerLink="/auth/register">Not register yet? Register here.</a>
