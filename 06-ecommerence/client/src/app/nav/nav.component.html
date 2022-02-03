@@ -15,10 +15,11 @@
              aria-expanded="false">
             Member
           </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/auth">Login</a></li>
-                <li><a class="dropdown-item" routerLink="/auth/register">Register</a></li>
-            </ul>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" *ngIf="isLoggedIn">Logout</a></li>
+            <li><a class="dropdown-item" routerLink="/auth" *ngIf="!isLoggedIn">Login</a></li>
+            <li><a class="dropdown-item" routerLink="/auth/register" *ngIf="!isLoggedIn">Register</a></li>
+          </ul>
         </li>
       </ul>
     </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LocalService} from "../../services/local.service";
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  isLoggedIn: boolean | undefined;
 
-  constructor() { }
+  constructor(private localService: LocalService) {
+  }
 
   ngOnInit(): void {
+    this.localService.isLoggedIn.subscribe(
+      state => {
+        this.isLoggedIn = state;
+      }
+    )
   }
 
 }

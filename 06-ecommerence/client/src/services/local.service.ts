@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs";
+import {map, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,9 @@ export class LocalService {
   private BASE_URL = 'http://localhost:3000'
   private CATEGORIES_URL = this.BASE_URL + '/categories'
   private LOGIN_URL = this.BASE_URL + '/login'
+
+  loggedIn = new Subject<boolean>()
+  isLoggedIn = this.loggedIn.asObservable()
 
   constructor(private http: HttpClient) {
   }
@@ -36,5 +39,9 @@ export class LocalService {
         (value: any) => value
       )
     )
+  }
+
+  changeAuthState(state: boolean) {
+    this.loggedIn.next(state)
   }
 }

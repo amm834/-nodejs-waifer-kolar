@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       response => {
         if (response.condition) {
           Storage.token = response.token;
+          this.localService.changeAuthState(true)
         }
       },
       error => {
