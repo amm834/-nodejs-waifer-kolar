@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
 import {LocalService} from "../services/local.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DetailComponent} from './detail/detail.component';
 import {AuthComponent} from './auth/auth.component';
 import {LoginComponent} from './auth/login/login.component';
@@ -17,6 +17,7 @@ import {GalleryCreateComponent} from './admin-panel/gallery-create/gallery-creat
 import {AdminGalleryComponent} from './admin-panel/admin-gallery/admin-gallery.component';
 import {AdminHomeComponent} from './admin-panel/admin-home/admin-home.component';
 import {PostCreateComponent} from './admin-panel/post-create/post-create.component';
+import {RequestInterceptor} from "./helper/request.interceptor";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {PostCreateComponent} from './admin-panel/post-create/post-create.compone
     ReactiveFormsModule
   ],
   providers: [
-    LocalService
+    LocalService,
+    {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

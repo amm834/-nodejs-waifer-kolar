@@ -9,6 +9,7 @@ export class LocalService {
   private BASE_URL = 'http://localhost:3000'
   private CATEGORIES_URL = this.BASE_URL + '/categories'
   private LOGIN_URL = this.BASE_URL + '/login'
+  private ADMIN_CATS = this.BASE_URL + '/api/admin/categories/all'
 
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
@@ -43,5 +44,13 @@ export class LocalService {
 
   changeAuthState(state: boolean) {
     this.loggedIn.next(state)
+  }
+
+  getAllAdminCats() {
+    return this.http.get(this.ADMIN_CATS).pipe(
+      map(
+        (response: any) => response
+      )
+    )
   }
 }
