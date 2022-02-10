@@ -15,3 +15,19 @@
     </div>
   </div>
 </div>
+
+
+<div class="container col-md-4 mt-3">
+  <ul class="pagination">
+    <li class="page-item">
+      <a routerLink="/admin/post/all" class="page-link" (click)="prevPage()">Prev</a>
+    </li>
+    <li class="page-item">
+      <a routerLink="/admin/post/all" class="page-link" *ngIf="response?.page">{{response.page}}</a>
+    </li>
+    <li class="page-item">
+      <a routerLink="/admin/post/all" class="page-link" (click)="nextPage()">Next</a>
+    </li>
+  </ul>
+
+</div>

@@ -8,16 +8,33 @@ import {LocalService} from "../../services/local.service";
 })
 export class PostAllComponent implements OnInit {
   products: any;
+  response: any;
 
   constructor(private localService: LocalService) {
   }
 
   ngOnInit(): void {
-    this.localService.getPaginatePosts(1, 50).subscribe(
+    this.paginate(1)
+  }
+
+  nextPage() {
+    if (this.response.hasNextPage) {
+      this.paginate(this.response.nextPage)
+    }
+  }
+
+  prevPage() {
+    if (this.response.hasPrevPage) {
+      this.paginate(this.response.prevPage)
+    }
+  }
+
+  paginate(start: number) {
+    this.localService.getPaginatePosts(start, 30).subscribe(
       (next: any) => {
         if (next.condition) {
           this.products = next.data.docs;
-          console.log(this.products)
+          this.response = next.data;
         } else {
           console.log(next.message)
         }
