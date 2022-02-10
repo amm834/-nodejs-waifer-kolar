@@ -1,4 +1,5 @@
 <div class="container my-5">
+  <a routerLink="/admin/gallery/create" class="btn btn-primary mb-3">Create</a>
   <div class="row">
     <div class="col-md-4" *ngFor="let category of galleries">
       <img src="http://localhost:3000/{{category.name}}" class="card-img-top">
