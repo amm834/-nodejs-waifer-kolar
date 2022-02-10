@@ -26,4 +26,14 @@ export class AdminGalleryComponent implements OnInit {
     )
   }
 
+  copyImage(name: string) {
+    let imageLink = `localhost:3000/${name}`
+    let input = document.createElement('input')
+    input.value = imageLink
+    document.body.appendChild(input)
+    input.select()
+    document.execCommand('copy')
+    document.body.removeChild(input)
+  }
+
 }

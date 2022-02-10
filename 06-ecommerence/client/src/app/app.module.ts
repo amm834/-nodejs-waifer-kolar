@@ -18,6 +18,7 @@ import {AdminGalleryComponent} from './admin-panel/admin-gallery/admin-gallery.c
 import {AdminHomeComponent} from './admin-panel/admin-home/admin-home.component';
 import {PostCreateComponent} from './admin-panel/post-create/post-create.component';
 import {RequestInterceptor} from "./helper/request.interceptor";
+import {ImageCropperModule} from "ngx-image-cropper";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {RequestInterceptor} from "./helper/request.interceptor";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImageCropperModule
   ],
   providers: [
     LocalService,
