@@ -11,7 +11,7 @@ export class LocalService {
   private LOGIN_URL = this.BASE_URL + '/login'
   private ADMIN_CATS = this.BASE_URL + '/api/admin/categories/all'
   private ADMIN_GALLERY = this.BASE_URL + '/api/admin/galleries/all'
-
+  private IMAGE_UPLOAD = this.BASE_URL + '/image/upload'
 
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
@@ -58,6 +58,14 @@ export class LocalService {
 
   getAdminGalleries() {
     return this.http.get(this.ADMIN_GALLERY).pipe(
+      map(
+        (response: any) => response
+      )
+    )
+  }
+
+  uploadImage(file: any) {
+    return this.http.post(this.IMAGE_UPLOAD, file).pipe(
       map(
         (response: any) => response
       )

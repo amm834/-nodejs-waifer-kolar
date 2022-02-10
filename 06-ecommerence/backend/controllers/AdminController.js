@@ -1,9 +1,9 @@
 import { all } from '../models/Category.js'
-import { all as galleriesAll } from '../models/Gallery.js'
+import { all as galleriesAll, save as gallerySave } from '../models/Gallery.js'
 import { paginate, save } from '../models/Product.js'
 
 const uploadImage = async (req, res) => {
-    const saved = await save({
+    const saved = await gallerySave({
         name: req.file.filename,
     })
     if (!saved) {
@@ -11,6 +11,7 @@ const uploadImage = async (req, res) => {
             condition: false,
             message: 'Image upload failed',
         })
+        return
     }
     // section onImageUploadSuccess
     /*

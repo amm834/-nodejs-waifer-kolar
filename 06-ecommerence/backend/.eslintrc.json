@@ -66,8 +66,7 @@
         "no-with": 2,
         "require-yield": 2,
         "use-isnan": 2,
-        "valid-typeof": 2,
-        "sort-imports": 2
+        "valid-typeof": 2
     },
     "env": {
         "browser": true,

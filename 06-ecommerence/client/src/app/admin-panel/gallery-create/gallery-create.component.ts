@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ImageCroppedEvent} from "ngx-image-cropper";
+import {LocalService} from "../../../services/local.service";
 
 @Component({
   selector: 'app-gallery-create',
@@ -10,7 +11,7 @@ export class GalleryCreateComponent implements OnInit {
   imageChangedEvent: any = ''
   croppedImage: any = ''
 
-  constructor() {
+  constructor(private localService: LocalService) {
   }
 
   ngOnInit(): void {
@@ -40,6 +41,15 @@ export class GalleryCreateComponent implements OnInit {
     const formData: FormData = new FormData()
     const file = this.dataURLToFile(this.croppedImage, this.imageChangedEvent.target.files[0].name)
     formData.append('image', file, file.name)
+
+    this.localService.uploadImage(formData).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   dataURLToFile(dataurl: any, filename: string) {
