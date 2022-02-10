@@ -19,6 +19,7 @@ import {AdminHomeComponent} from './admin-panel/admin-home/admin-home.component'
 import {PostCreateComponent} from './admin-panel/post-create/post-create.component';
 import {RequestInterceptor} from "./helper/request.interceptor";
 import {ImageCropperModule} from "ngx-image-cropper";
+import {PostAllComponent} from './post-all/post-all.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {ImageCropperModule} from "ngx-image-cropper";
     GalleryCreateComponent,
     AdminGalleryComponent,
     AdminHomeComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    PostAllComponent
   ],
   imports: [
     BrowserModule,

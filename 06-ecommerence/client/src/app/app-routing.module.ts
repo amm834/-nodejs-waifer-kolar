@@ -10,6 +10,7 @@ import {AdminHomeComponent} from "./admin-panel/admin-home/admin-home.component"
 import {AdminGalleryComponent} from "./admin-panel/admin-gallery/admin-gallery.component";
 import {GalleryCreateComponent} from "./admin-panel/gallery-create/gallery-create.component";
 import {PostCreateComponent} from "./admin-panel/post-create/post-create.component";
+import {PostAllComponent} from "./post-all/post-all.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
       {path: "", component: AdminHomeComponent},
       {path: "gallery", component: AdminGalleryComponent},
       {path: "gallery/create", component: GalleryCreateComponent},
-      {path: "post", component: PostCreateComponent}
+      {path: "post", component: PostCreateComponent},
+      {path: "post/all", component: PostAllComponent}
     ]
   }
 ];

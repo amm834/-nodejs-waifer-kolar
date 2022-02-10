@@ -64,11 +64,18 @@ export class LocalService {
     )
   }
 
-  uploadImage(file: any) {
+  uploadImage(file: FormData) {
     return this.http.post(this.IMAGE_UPLOAD, file).pipe(
       map(
         (response: any) => response
       )
+    )
+  }
+
+  getPaginatePosts(start: number, end: number) {
+    const link = `${this.BASE_URL}/products/paginate/${start}/${end}`
+    return this.http.get(link).pipe(
+      (response: any) => response
     )
   }
 }
