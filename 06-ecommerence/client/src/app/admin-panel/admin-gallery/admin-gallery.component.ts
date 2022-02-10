@@ -17,7 +17,6 @@ export class AdminGalleryComponent implements OnInit {
       response => {
         if (response.condition) {
           this.galleries = response.data
-          console.log(this.galleries)
         }
       },
       error => {

@@ -14,7 +14,6 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     this.localService.getAllAdminCats().subscribe(
       response => {
-        console.log(response)
       },
       error => {
         console.log(error)
