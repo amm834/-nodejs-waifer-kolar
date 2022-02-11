@@ -16,6 +16,7 @@ interface Category {
 })
 export class HomeComponent implements OnInit {
   categories: Category[] = [];
+  loadMe = false
 
   constructor
   (
@@ -24,9 +25,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadMe = true
     this.http.getAllCategories().subscribe(
       response => {
         if (response.condition) {
+          this.loadMe = false
           this.categories = response.data;
         }
       },

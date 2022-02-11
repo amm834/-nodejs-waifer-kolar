@@ -9,6 +9,7 @@ import {LocalService} from "../../services/local.service";
 export class PostAllComponent implements OnInit {
   products: any;
   response: any;
+  loadMe = false
 
   constructor(private localService: LocalService) {
   }
@@ -30,9 +31,11 @@ export class PostAllComponent implements OnInit {
   }
 
   paginate(start: number) {
+    this.loadMe = true
     this.localService.getPaginatePosts(start, 30).subscribe(
       (next: any) => {
         if (next.condition) {
+          this.loadMe = false
           this.products = next.data.docs;
           this.response = next.data;
         } else {
