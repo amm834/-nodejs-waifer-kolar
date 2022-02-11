@@ -12,6 +12,7 @@ export class LocalService {
   private ADMIN_CATS = this.BASE_URL + '/api/admin/categories/all'
   private ADMIN_GALLERY = this.BASE_URL + '/api/admin/galleries/all'
   private IMAGE_UPLOAD = this.BASE_URL + '/image/upload'
+  private CREATE_PRODUCT = this.BASE_URL + '/product/create'
 
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
@@ -76,6 +77,14 @@ export class LocalService {
     const link = `${this.BASE_URL}/products/paginate/${start}/${end}`
     return this.http.get(link).pipe(
       (response: any) => response
+    )
+  }
+
+  createProduct(data: FormData) {
+    return this.http.post(this.CREATE_PRODUCT, data).pipe(
+      map(
+        (res: any) => res
+      )
     )
   }
 }

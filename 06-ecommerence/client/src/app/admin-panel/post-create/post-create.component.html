@@ -1,1 +1,61 @@
-<p>post-create works!</p>
+<div class="container mt-5">
+  <h1 class="display-6 text-center">Post Create</h1>
+  <form class="col-md-8 offset-md-2"
+        [formGroup]="form"
+        (submit)="startPost(form.value)"
+  >
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select class="form-control" formControlName="cat_id">
+        <option *ngFor="let cat of cats" value="{{cat.id}}">{{cat.name}}</option>
+      </select>
+      <div *ngIf="cat_id?.invalid">
+        <div class="text-danger" *ngIf="cat_id?.errors?.['required']">
+          Cat id is requied
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Name</label>
+      <input type="text" class="form-control" id="username"
+             formControlName="name">
+      <div *ngIf="name?.invalid">
+        <div class="text-danger" *ngIf="name?.errors?.['required']">
+          Name is requied
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Price</label>
+      <input type="number" class="form-control" id="exampleInputEmail1"
+             formControlName="price">
+      <div *ngIf="price?.invalid">
+        <div class="text-danger" *ngIf="price?.errors?.['required']">
+          Price is requied
+        </div>
+
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Image Link</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="image">
+      <div *ngIf="image?.invalid">
+        <div class="text-danger" *ngIf="image?.errors?.['required']">
+          Image is requied
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input type="text" class="form-control" formControlName="description">
+      <div *ngIf="description?.invalid">
+        <div class="text-danger" *ngIf="description?.errors?.['required']">
+          Description is requied
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Create</button>
+    </div>
+  </form>
+</div>
