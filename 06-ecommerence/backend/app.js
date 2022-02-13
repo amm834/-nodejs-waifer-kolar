@@ -1,16 +1,17 @@
 import bodyParser from "body-parser";
+import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import http from 'http'
 import mongoose from "mongoose";
 import passport from "passport";
 import {ExtractJwt, Strategy} from 'passport-jwt'
+import {saveOrder} from "./models/Order.js";
 import {findByEmail} from './models/User.js'
 import Router from "./router.js";
 import AdminRouter from "./routes/admin.js";
 import GuesRouter from "./routes/guest.js";
 import UserRouter from './routes/user.js'
-import cors from 'cors'
 
 // section Monogo ORM
 /*
@@ -84,6 +85,14 @@ app.use('/', GuesRouter)
 app.use('/api/user', UserRouter)
 app.use('/api/admin', AdminRouter)
 
+saveOrder({
+	uid: mongoose.Types.ObjectId('61f2a1d6778513a6c186fb18'),
+	ords: JSON.stringify({4000: 1, 4002: 3})
+}).then(res => {
+	console.log(res)
+}).catch(err => {
+	console.log(err)
+})
 
 server.listen(process.env.PORT, () => {
 	console.log(`Server is running at http://${process.env.HOST}:${process.env.PORT}`)
