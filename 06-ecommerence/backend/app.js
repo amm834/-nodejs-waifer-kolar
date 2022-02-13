@@ -6,7 +6,6 @@ import http from 'http'
 import mongoose from "mongoose";
 import passport from "passport";
 import {ExtractJwt, Strategy} from 'passport-jwt'
-import {findOrderById} from "./models/Order.js";
 import {findByEmail} from './models/User.js'
 import Router from "./router.js";
 import AdminRouter from "./routes/admin.js";
@@ -84,11 +83,6 @@ app.use('/', GuesRouter)
 app.use('/api/user', UserRouter)
 app.use('/api/admin', AdminRouter)
 
-findOrderById(mongoose.Types.ObjectId('62091af4148b5e29d9341ee7'))
-	.then(
-		res => {
-			console.log(res.length)
-		})
 
 server.listen(process.env.PORT, () => {
 	console.log(`Server is running at http://${process.env.HOST}:${process.env.PORT}`)

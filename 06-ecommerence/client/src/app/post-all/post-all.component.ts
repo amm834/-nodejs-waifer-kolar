@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LocalService} from "../../services/local.service";
+import {Cart} from "../helper/Cart";
 
 @Component({
   selector: 'app-post-all',
@@ -46,6 +47,10 @@ export class PostAllComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+
+  addToCart(product: any) {
+    Cart.addToCart(product)
   }
 
 
