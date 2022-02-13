@@ -1,4 +1,6 @@
 import jwt from 'jsonwebtoken'
+import mongoose from "mongoose";
+import {saveOrders} from "../models/Order.js";
 import {findByEmail, save} from '../models/User.js'
 import * as hasher from "../utils/hasher.js";
 
@@ -102,5 +104,20 @@ const login = async (req, res) => {
 
 }
 
+const saveOrder = async (req, res) => {
+	try {
+		const {uid, ords} = req.fields;
+		const result = await saveOrders({uid: mongoose.Types.ObjectId(uid), ords})
+		res.json({
+			condition: true,
+			data: result
+		})
+	} catch (errors) {
+		res.status(422).json({
+			errors
+		})
+	}
+}
 
-export default {register, login}
+
+export default {register, login, saveOrder}

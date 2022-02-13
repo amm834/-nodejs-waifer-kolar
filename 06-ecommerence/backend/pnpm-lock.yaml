@@ -10,6 +10,7 @@ specifiers:
   dotenv: ^14.3.0
   eslint: ^8.7.0
   express: ^4.17.2
+  express-formidable: ^1.2.0
   express-promise-router: ^4.1.1
   jsonwebtoken: ^8.5.1
   mongoose: ^6.1.8
@@ -24,6 +25,7 @@ dependencies:
   cors: 2.8.5
   dotenv: 14.3.0
   express: 4.17.2
+  express-formidable: 1.2.0
   express-promise-router: 4.1.1_1b803edea6f06711ee906a90f400b6a4
   jsonwebtoken: 8.5.1
   mongoose: 6.1.8
@@ -610,6 +612,13 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /express-formidable/1.2.0:
+    resolution: {integrity: sha512-w1vXjF3gb50UKTNkFaW8/4rqY4dUrKfZ1sAZzwAF9YxCAgj/29QZsycf71di0GkskrZOAkubk9pvGYfxyAMYiw==}
+    engines: {node: '>= 8'}
+    dependencies:
+      formidable: 1.2.6
+    dev: false
+
   /express-promise-router/4.1.1_1b803edea6f06711ee906a90f400b6a4:
     resolution: {integrity: sha512-Lkvcy/ZGrBhzkl3y7uYBHLMtLI4D6XQ2kiFg9dq7fbktBch5gjqJ0+KovX0cvCAvTJw92raWunRLM/OM+5l4fA==}
     engines: {node: '>=10'}
@@ -706,6 +715,11 @@ packages:
   /flatted/3.2.4:
     resolution: {integrity: sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==}
     dev: true
+
+  /formidable/1.2.6:
+    resolution: {integrity: sha512-KcpbcpuLNOwrEjnbpMC0gS+X8ciDoZE1kkqzat4a8vrprf+s9pKNQ/QIwWfbfs4ltgmFl3MD177SNTkve3BwGQ==}
+    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
+    dev: false
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}

@@ -11,7 +11,7 @@ import {Cart} from "../helper/Cart";
 })
 export class NavComponent implements OnInit {
   isLoggedIn: boolean | undefined;
-  cartCount = Cart.getAllProducts().length
+  cartCount = 0
 
   constructor(private localService: LocalService, private router: Router) {
   }
@@ -22,6 +22,7 @@ export class NavComponent implements OnInit {
         this.isLoggedIn = state;
       }
     )
+    this.cartCount = Cart.getAllProducts().legth
     this.localService.cartChanged.subscribe(
       state => {
         this.cartCount = Cart.getAllProducts().length;

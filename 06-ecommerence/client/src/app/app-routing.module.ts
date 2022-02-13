@@ -15,6 +15,7 @@ import {CartDetailComponent} from "./cart-detail/cart-detail.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
+  {path: "post/all", component: PostAllComponent},
   {path: "cart/detail", component: CartDetailComponent},
   {path: "detail/:id", component: DetailComponent},
   {

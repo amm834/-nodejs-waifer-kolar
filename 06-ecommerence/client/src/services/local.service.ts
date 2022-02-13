@@ -13,7 +13,7 @@ export class LocalService {
   private ADMIN_GALLERY = this.BASE_URL + '/api/admin/galleries/all'
   private IMAGE_UPLOAD = this.BASE_URL + '/image/upload'
   private CREATE_PRODUCT = this.BASE_URL + '/product/create'
-
+  private ORDER_URL = this.BASE_URL + '/api/user/order'
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
 
@@ -91,6 +91,14 @@ export class LocalService {
     return this.http.post(this.CREATE_PRODUCT, data).pipe(
       map(
         (res: any) => res
+      )
+    )
+  }
+
+  checkOutOrder(data: FormData) {
+    return this.http.post(this.ORDER_URL, data).pipe(
+      map(
+        (response: any) => response
       )
     )
   }

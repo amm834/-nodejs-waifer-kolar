@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
+import formidable from 'express-formidable'
 import http from 'http'
 import mongoose from "mongoose";
 import passport from "passport";
@@ -63,6 +64,7 @@ const router = Router.getInstance()
 const server = http.createServer(app)
 
 app.use(cors())
+app.use(formidable())
 app.use(express.static('storage/images'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))

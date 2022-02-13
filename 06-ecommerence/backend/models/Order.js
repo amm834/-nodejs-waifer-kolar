@@ -10,7 +10,7 @@ const OrderSchema = new Schema({
 
 export const Order = mongoose.model('order', OrderSchema)
 
-export const saveOrder = async (obj) => {
+export const saveOrders = async (obj) => {
 	obj['since'] = Date.now();
 	return Order.create(obj)
 }

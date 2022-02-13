@@ -7,6 +7,7 @@
       <th scope="col">Price</th>
       <th scope="col">Count</th>
       <th scope="col">Action</th>
+      <th scope="col">Total</th>
     </tr>
     </thead>
     <tbody>
@@ -16,14 +17,21 @@
       <td>{{product.price}}</td>
       <td>{{product.count}}</td>
       <td>
-        <button class="btn btn-success btn-sm">+</button>
+        <button class="btn btn-success btn-sm" (click)="increase(product,1)">+</button>
         {{product.count}}
-        <button class="btn btn-danger btn-sm">-</button>
+        <button class="btn btn-danger btn-sm" (click)="increase(product,-1)">-</button>
+        <button class="btn btn-danger btn-sm mx-3" (click)="removeProduct(product)">Delete</button>
       </td>
+      <td>  {{product.count * product.price}}$</td>
     </tr>
     <tr>
-      <td colspan="4" class="text-end border-end fs-5">Total</td>
-      <td>202002$</td>
+      <td colspan="5" class="text-end border-end fs-5">Total</td>
+      <td>{{grandTotal}}$</td>
+    </tr>
+    <tr>
+      <td colspan="6">
+        <button class="btn btn-success float-end" (click)="checkOut()">Check Out</button>
+      </td>
     </tr>
     </tbody>
   </table>
