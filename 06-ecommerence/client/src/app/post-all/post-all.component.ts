@@ -51,6 +51,7 @@ export class PostAllComponent implements OnInit {
 
   addToCart(product: any) {
     Cart.addToCart(product)
+    this.localService.changeCart(true)
   }
 
 

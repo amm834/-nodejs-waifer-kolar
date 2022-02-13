@@ -17,6 +17,9 @@ export class LocalService {
   loggedIn = new Subject<boolean>()
   isLoggedIn = this.loggedIn.asObservable()
 
+  cartChanged = new Subject<boolean>()
+  cartChange = this.cartChanged.asObservable()
+
   constructor(private http: HttpClient) {
   }
 
@@ -47,6 +50,10 @@ export class LocalService {
 
   changeAuthState(state: boolean) {
     this.loggedIn.next(state)
+  }
+
+  changeCart(state: boolean) {
+    this.cartChanged.next(state)
   }
 
   getAllAdminCats() {

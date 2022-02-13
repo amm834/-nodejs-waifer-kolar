@@ -23,6 +23,5 @@ export class Cart {
     }
     localStorage.removeItem(this.storageName)
     localStorage.setItem(this.storageName, JSON.stringify(products))
-    console.log(this.getAllProducts())
   }
 }
