@@ -21,6 +21,7 @@ import {RequestInterceptor} from "./helper/request.interceptor";
 import {ImageCropperModule} from "ngx-image-cropper";
 import {PostAllComponent} from './post-all/post-all.component';
 import {LoadingComponent} from './loading/loading.component';
+import {CartDetailComponent} from './cart-detail/cart-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {LoadingComponent} from './loading/loading.component';
     AdminHomeComponent,
     PostCreateComponent,
     PostAllComponent,
-    LoadingComponent
+    LoadingComponent,
+    CartDetailComponent
   ],
   imports: [
     BrowserModule,

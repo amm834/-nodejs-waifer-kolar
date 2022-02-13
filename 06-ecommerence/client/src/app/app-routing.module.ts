@@ -11,9 +11,11 @@ import {AdminGalleryComponent} from "./admin-panel/admin-gallery/admin-gallery.c
 import {GalleryCreateComponent} from "./admin-panel/gallery-create/gallery-create.component";
 import {PostCreateComponent} from "./admin-panel/post-create/post-create.component";
 import {PostAllComponent} from "./post-all/post-all.component";
+import {CartDetailComponent} from "./cart-detail/cart-detail.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
+  {path: "cart/detail", component: CartDetailComponent},
   {path: "detail/:id", component: DetailComponent},
   {
     path: "auth", component: AuthComponent, children: [
